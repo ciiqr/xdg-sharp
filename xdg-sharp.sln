@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xdg-sharp", "xdg-sharp\xdg-sharp.csproj", "{426EE29C-FFDA-4AF9-B2FA-1D0F3552F74B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xdg-sharp-tester", "xdg-sharp-tester\xdg-sharp-tester.csproj", "{2D59CC42-AE3E-429D-B1F7-E9CC1B7F086D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D59CC42-AE3E-429D-B1F7-E9CC1B7F086D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D59CC42-AE3E-429D-B1F7-E9CC1B7F086D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D59CC42-AE3E-429D-B1F7-E9CC1B7F086D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D59CC42-AE3E-429D-B1F7-E9CC1B7F086D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{426EE29C-FFDA-4AF9-B2FA-1D0F3552F74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{426EE29C-FFDA-4AF9-B2FA-1D0F3552F74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{426EE29C-FFDA-4AF9-B2FA-1D0F3552F74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{426EE29C-FFDA-4AF9-B2FA-1D0F3552F74B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
