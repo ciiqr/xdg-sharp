@@ -29,10 +29,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="Mono.Posix" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\xdg-sharp\xdg-sharp.csproj">
+      <Project>{426EE29C-FFDA-4AF9-B2FA-1D0F3552F74B}</Project>
+      <Name>xdg-sharp</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
