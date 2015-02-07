@@ -8,7 +8,6 @@ namespace xdg
 {
     class Exception: System.Exception
     {
-        public static bool Debug = false; // TODO: Move to config
         public Exception(string message) : base(message) { }
     }
     class ValidationError: Exception

@@ -79,7 +79,7 @@ namespace xdg
             }
             catch (Exception)
             {
-                if (Exception.Debug)
+                if (Config.Debug)
                     throw;
                 else
                     return;
@@ -101,7 +101,7 @@ namespace xdg
                 else if (line[0] == '[')
                 {
                     currentGroup = line.TrimStart('[').TrimEnd(']');
-                    if (Exception.Debug && this.hasGroup(currentGroup))
+                    if (Config.Debug && this.hasGroup(currentGroup))
                         throw new DuplicateGroupError(currentGroup, filename);
                     else
                         content[currentGroup] = new ContentGroupDictionaryType();
@@ -124,7 +124,7 @@ namespace xdg
                     key = key.Trim(); // Spaces before/after "=" should be ignored
                     try
                     {
-                        if (Exception.Debug && this.hasKey(key, currentGroup))
+                        if (Config.Debug && this.hasKey(key, currentGroup))
                             throw new DuplicateKeyError(key, currentGroup, filename);
                         else
                             content[currentGroup][key] = value.Trim();
@@ -179,7 +179,7 @@ namespace xdg
             }
             else
             {
-                if (Exception.Debug)
+                if (Config.Debug)
                 {
                     if (!this.content.ContainsKey(group))
                         throw new NoGroupError(group, this.filename);
@@ -256,7 +256,7 @@ namespace xdg
             }
             else
             {
-                if (Exception.Debug)
+                if (Config.Debug)
                 {
                     if (!this.content.ContainsKey(group))
                         throw new NoGroupError(group, this.filename);
@@ -627,7 +627,7 @@ namespace xdg
         public void addGroup(string group)
         {
             if (this.hasGroup(group))
-            if (Exception.Debug)
+            if (Config.Debug)
                 throw new DuplicateGroupError(group, this.filename);
             else
             {
@@ -646,7 +646,7 @@ namespace xdg
             }
             else
             {
-                if (Exception.Debug)
+                if (Config.Debug)
                     throw new NoGroupError(group, this.filename);
             }
             return existed;
@@ -676,7 +676,7 @@ namespace xdg
             }
             catch (KeyNotFoundException)
             {
-                if (Exception.Debug)
+                if (Config.Debug)
                 {
                     if (lastKey == group)
                         throw new NoGroupError(group, this.filename);
