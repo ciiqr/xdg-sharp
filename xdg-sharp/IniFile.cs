@@ -87,8 +87,8 @@ namespace xdg
 
             // parse file
             string currentGroup = null;
-            var line = fd.ReadLine();
-            while (line != null)
+            string line;
+            while ((line = fd.ReadLine()) != null)
             {
                 line = line.Trim();
                 // empty line
@@ -112,7 +112,7 @@ namespace xdg
                     string key, value;
                     try
                     {
-                        var splitLine = line.Split("=".ToCharArray(), 1);
+                        var splitLine = line.Split("=".ToCharArray());
                         key = splitLine[0];
                         value = splitLine[1];
                     }
