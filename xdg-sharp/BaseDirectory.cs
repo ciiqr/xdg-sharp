@@ -39,26 +39,11 @@ namespace xdg
             tempConfigDirs.AddRange((Environment.GetEnvironmentVariable("XDG_CONFIG_DIRS") ?? "/etc/xdg").Split(Path.PathSeparator));
 
             // Remove empty paths
-            tempDataDirs  .RemoveAll((p) => p.Length == 0); // TODO: What would happen if this was an async delegate
+            tempDataDirs  .RemoveAll((p) => p.Length == 0);
             tempConfigDirs.RemoveAll((p) => p.Length == 0);
 
             xdg_data_dirs = tempDataDirs.ToArray();
             xdg_config_dirs = tempConfigDirs.ToArray();
-        }
-
-        // TODO: Move to it's own class
-        private static void makedirs(string path, Mono.Unix.Native.FilePermissions permissions=Mono.Unix.Native.FilePermissions.ALLPERMS)
-        {
-            string[] pathParts = path.Split(Path.PathSeparator);
-
-            for (int i = 0; i < pathParts.Length; i++)
-            {
-                if (i > 0)
-                    pathParts[i] = Path.Combine(pathParts[i - 1], pathParts[i]);
-
-                if (!Directory.Exists(pathParts[i]))
-                    Mono.Unix.Native.Syscall.mkdir(pathParts[i], permissions);
-            }
         }
 
         public static string SaveConfigPath(params string[] resources)
@@ -71,7 +56,7 @@ namespace xdg
             Debug.Assert(!resource.StartsWith("/"));
             var path = Path.Combine(xdg_config_home, resource);
             if (!Directory.Exists(path))
-                makedirs(path, Mono.Unix.Native.FilePermissions.S_IRWXU);
+                Utils.makedirs(path, Mono.Unix.Native.FilePermissions.S_IRWXU);
             return path;
         }
         public static string SaveDataPath(params string[] resources)
@@ -84,7 +69,7 @@ namespace xdg
             Debug.Assert(!resource.StartsWith("/"));
             var path = Path.Combine(xdg_data_home, resource);
             if (!Directory.Exists(path))
-                makedirs(path);
+                Utils.makedirs(path);
             return path;
         }
         public static string SaveCachePath(params string[] resources)
@@ -96,7 +81,7 @@ namespace xdg
             Debug.Assert(!resource.StartsWith("/"));
             var path = Path.Combine(xdg_cache_home, resource);
             if (!Directory.Exists(path))
-                makedirs(path);
+                Utils.makedirs(path);
             return path;
         }
         public static IEnumerable<string> LoadConfigPaths(params string[] resources)
