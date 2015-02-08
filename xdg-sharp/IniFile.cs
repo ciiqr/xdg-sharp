@@ -234,8 +234,10 @@ namespace xdg
                     result = new Point(0, 0);
                 }
             }
-             else
-                 result = default(type);
+            else if (typ == typeof(string))
+                result = val;
+            else
+                result = default(type);
 
             return (type)result;
         }
@@ -314,6 +316,8 @@ namespace xdg
                         valCheck = new Point(0, 0);
                     }
                 }
+                else if (typ == typeof(string))
+                    valCheck = val;
                 else
                     valCheck = default(type);
 

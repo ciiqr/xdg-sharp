@@ -8,6 +8,10 @@ namespace xdgsharptester
         {
             var entry = new xdg.DesktopEntry("/home/william/.local/share/applications/chrome-fdmmgilgnpjigdojojpjoooidkmcomcm-Default.desktop");
 
+            Console.WriteLine(entry.GetName() ?? "null");
+            // Console.WriteLine(entry.getFileName());
+            Console.WriteLine(entry.GetIcon() ?? "null");
+
 //            Console.WriteLine(xdg.BaseDirectory.SaveConfigPath("quick-launch"));
 //            Console.WriteLine(xdg.BaseDirectory.SaveCachePath("quick-launch"));
 //
