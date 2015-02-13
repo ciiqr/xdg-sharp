@@ -1,13 +1,13 @@
 # xdg-sharp
 A rather crude port of pyxdg to C#
 
-## Done
-* BaseDirectory (though needs more testing)
-
-## Todo
+## Done (though needs more testing overall)
+* BaseDirectory  
 * DesktopEntry  
 * IniFile  
 * Config  
+
+## Todo
 * Locale  
 * RecentFiles  
 * IconTheme  
